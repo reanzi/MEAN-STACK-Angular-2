@@ -18,6 +18,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     AppRoutingModule,
     FlashMessagesModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuard, NotAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
